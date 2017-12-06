@@ -1,38 +1,24 @@
 package com.pocs.app;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import com.pocs.app.domain.Box;
+import com.pocs.app.service.ArrangementService;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+import java.util.List;
 
 /**
  * Unit test for simple Xpeedit.
  */
-public class XpeeditTest
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public XpeeditTest(String testName )
-    {
-        super( testName );
-    }
+public class XpeeditTest {
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( XpeeditTest.class );
-    }
+    private ArrangementService arrangementService = new ArrangementService();
 
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
+    @Test
+    public void should_use_zero_box_when_item_sequence_is_empty() {
+
+        List<Box> arrange = arrangementService.arrange("");
+
+        Assertions.assertEquals(0, arrange.size());
     }
 }
