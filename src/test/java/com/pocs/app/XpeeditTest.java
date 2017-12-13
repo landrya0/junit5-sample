@@ -2,8 +2,8 @@ package com.pocs.app;
 
 import com.pocs.app.domain.Box;
 import com.pocs.app.service.ArrangementService;
+import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
