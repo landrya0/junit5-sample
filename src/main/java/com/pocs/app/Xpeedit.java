@@ -1,9 +1,10 @@
 package com.pocs.app;
 
 import com.pocs.app.domain.Box;
-import com.pocs.app.service.ArrangementService;
+import com.pocs.app.service.BasicArrangementService;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Hello world!
@@ -11,15 +12,13 @@ import java.util.List;
 public class Xpeedit {
     public static void main(String[] args) {
 
-        ArrangementService service = new ArrangementService();
+        BasicArrangementService service = new BasicArrangementService();
 
-        List<Box> boxes = service.arrange("33");
+        List<Box> boxes = service.arrange("163841689525773");
 
-        System.out.println("Box Number: " + boxes.size());
-        boxes.forEach(box -> {
-            System.out.print("Boxe Capacity: " + box.getCapacity() + " ");
-            System.out.println(box.toString());
-        });
+        String boxesSequence = boxes.stream().map(Box::toString).collect(Collectors.joining("/"));
+
+        System.out.println(boxesSequence);
 
     }
 }

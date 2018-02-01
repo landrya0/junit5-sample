@@ -2,6 +2,7 @@ package com.pocs.app.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Box {
 
@@ -16,8 +17,8 @@ public class Box {
         return false;
     }
 
-    public boolean isFull() {
-        return getCapacity() == 0;
+    public boolean isEmpty() {
+        return getCapacity() == MAX_CAPACITY;
     }
 
     public int getCapacity() {
@@ -29,8 +30,6 @@ public class Box {
 
     @Override
     public String toString() {
-        return "Box{" +
-                ", itemList=" + itemList +
-                '}';
+        return itemList.stream().map(Item::toString).collect(Collectors.joining(""));
     }
 }

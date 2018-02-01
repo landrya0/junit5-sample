@@ -17,8 +17,6 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item{" +
-                "size=" + size +
-                '}';
+        return String.valueOf(size);
     }
 }
